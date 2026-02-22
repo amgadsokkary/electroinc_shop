@@ -6,11 +6,13 @@ class AuthService {
     required String email,
     required String username,
     required String password,
+    required String phone,
+    required String address,
   }) async {
     final response = await supabase.auth.signUp(
       email: email,
       password: password,
-      data: {'username': username},
+      data: {'username': username, 'phone': phone, 'address': address},
     );
     if (response.user == null) {
       throw Exception("SignUp Failed");

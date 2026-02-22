@@ -13,6 +13,8 @@ class AppauthCubit extends Cubit<AppauthState> {
     required String email,
     required String username,
     required String password,
+    required String phone,
+    required String address,
   }) async {
     emit(AppauthLoading());
     try {
@@ -20,6 +22,8 @@ class AppauthCubit extends Cubit<AppauthState> {
         email: email,
         username: username,
         password: password,
+        phone: phone,
+        address: address,
       );
       emit(AppauthSuccess());
       CacheUserRepo.login(true);

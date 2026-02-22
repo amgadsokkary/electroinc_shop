@@ -13,6 +13,8 @@ class Signup extends StatelessWidget {
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final phoneController = TextEditingController();
+  final addressController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   Signup({super.key});
@@ -76,6 +78,16 @@ class Signup extends StatelessWidget {
                           controller: emailController,
                         ),
                         CustomTextFormField(
+                          icon: Icons.phone,
+                          labelText: "Phone",
+                          controller: phoneController,
+                        ),
+                        CustomTextFormField(
+                          icon: Icons.location_on,
+                          labelText: "Location",
+                          controller: addressController,
+                        ),
+                        CustomTextFormField(
                           icon: Icons.lock,
                           labelText: "Password",
                           controller: passwordController,
@@ -94,6 +106,8 @@ class Signup extends StatelessWidget {
                                       email: emailController.text,
                                       password: passwordController.text,
                                       username: usernameController.text,
+                                      phone: phoneController.text,
+                                      address: addressController.text,
                                     );
                                   }
                                 },

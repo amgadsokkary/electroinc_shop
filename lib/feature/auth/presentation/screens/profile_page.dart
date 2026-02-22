@@ -1,4 +1,5 @@
 import 'package:electronic_store/core/cache/cache_user_repo.dart';
+import 'package:electronic_store/core/theme/app_images.dart';
 import 'package:electronic_store/core/theme/app_styles.dart';
 import 'package:electronic_store/core/widget/custom_button.dart';
 import 'package:electronic_store/feature/auth/cubit/appauth/appauth_cubit.dart';
@@ -25,45 +26,122 @@ class ProfilePage extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(title: Text("Profile"), centerTitle: true),
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            title: Text(
+              "Profile",
+              style: AppStyles.headlineLarge.copyWith(color: Colors.white),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
           body: Center(
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage("assets/images/logo.png"),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(AppImages.background),
+                  fit: BoxFit.cover,
                 ),
-                SizedBox(height: 20),
-                Text(
-                  user!.userMetadata?["username"] ?? "Unknown User",
-                  style: AppStyles.headlineMedium,
-                ),
-                SizedBox(height: 10),
-                Text("${user!.email}", style: AppStyles.bodyMedium),
-                ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Add Product"),
-                  trailing: Icon(Icons.arrow_forward_ios_outlined),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddProducts()),
-                    );
-                  },
-                ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: state is AppauthLoading
-                      ? CircularProgressIndicator()
-                      : CustomButton(
-                          bName: "logOut",
-                          onPressed: () {
-                            BlocProvider.of<AppauthCubit>(context).logout();
-                          },
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 110.0),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 100,
+                      backgroundImage: AssetImage(AppImages.profile),
+                    ),
+                    SizedBox(height: 20),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.person_4_outlined),
+                      ),
+                      title: Text(
+                        user!.userMetadata?["username"] ?? "Unknown User",
+                        style: AppStyles.bodyLarge,
+                      ),
+                    ),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.email_outlined),
+                      ),
+                      title: Text("${user!.email}", style: AppStyles.bodyLarge),
+                    ),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.phone),
+                      ),
+                      title: Text(
+                        "${user!.userMetadata?["phone"]}",
+                        style: AppStyles.bodyLarge,
+                      ),
+                    ),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.location_on_outlined),
+                      ),
+                      title: Text(
+                        "${user!.userMetadata?["address"]}",
+                        style: AppStyles.bodyLarge,
+                      ),
+                    ),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.lock),
+                      ),
+                      title: Text("Password", style: AppStyles.bodyLarge),
+                      trailing: IconTheme(
+                        data: AppStyles.iconStyle.copyWith(size: 20),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: IconTheme(
+                            data: AppStyles.iconStyle,
+                            child: Icon(Icons.sync),
+                          ),
                         ),
+                      ),
+                    ),
+                    Spacer(),
+                    ListTile(
+                      leading: IconTheme(
+                        data: AppStyles.iconStyle,
+                        child: Icon(Icons.add),
+                      ),
+                      title: Text("Add Product", style: AppStyles.bodyLarge),
+                      trailing: IconTheme(
+                        data: AppStyles.iconStyle.copyWith(size: 20),
+                        child: Icon(Icons.arrow_forward_ios_outlined),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => AddProducts(),
+                          ),
+                        );
+                      },
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: state is AppauthLoading
+                          ? CircularProgressIndicator()
+                          : CustomButton(
+                              bName: "logOut",
+                              onPressed: () {
+                                BlocProvider.of<AppauthCubit>(context).logout();
+                              },
+                            ),
+                    ),
+                    SizedBox(height: 30),
+                  ],
                 ),
-                SizedBox(height: 30),
-              ],
+              ),
             ),
           ),
         );

@@ -39,4 +39,9 @@ class AppStyles {
   );
 
   static TextStyle error = const TextStyle(fontSize: 16, color: Colors.red);
+
+  static IconThemeData iconStyle = const IconThemeData(
+    color: AppColors.white,
+    size: 30,
+  );
 }
