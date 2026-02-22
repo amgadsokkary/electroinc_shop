@@ -43,6 +43,7 @@ dependencies:
   flutter_bloc: ^7.0.0
   mate: ^0.0.5
   flutter_launcher_icons: ^0.14.4
+  meta: ^1.17.0
 
 dev_dependencies:
   flutter_test:
