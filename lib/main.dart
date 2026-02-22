@@ -1,7 +1,9 @@
 import 'package:electronic_store/core/cache/cache_user_repo.dart';
 import 'package:electronic_store/feature/auth/cubit/appauth/appauth_cubit.dart';
 import 'package:electronic_store/feature/auth/presentation/screens/on_board_page.dart';
-import 'package:electronic_store/splash_screen.dart';
+import 'package:electronic_store/feature/cart/cubit/cart_cubit.dart';
+import 'package:electronic_store/feature/home/cubit/product/product_cubit.dart';
+import 'package:electronic_store/feature/home/presentation/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -29,11 +31,15 @@ class ElectronicShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AppauthCubit())],
+      providers: [
+        BlocProvider(create: (context) => AppauthCubit()),
+        BlocProvider(create: (context) => ProductCubit()..getAllProduct()),
+        BlocProvider(create: (context) => CartCubit()..getCartItems()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Electronic Shop',
-        home: isLogin ? const SplashScreen() : const OnBoardPage(),
+        home: isLogin ? const HomePage() : const OnBoardPage(),
       ),
     );
   }

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class GroceriesModel {
   final String? name;
   final String? image;
-  final Color? color;
+  final Color color;
   GroceriesModel({this.name, this.image, this.color = AppColors.primary});
 
   factory GroceriesModel.fromJson(Map<String, dynamic> json) {
     return GroceriesModel(
       name: json['name'] ?? '',
       image: json['image'] ?? '',
-      color: json['color'] ?? AppColors.primary,
+      color: AppColors.primary,
     );
   }
 }

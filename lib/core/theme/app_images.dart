@@ -3,4 +3,5 @@ class AppImages {
   static const String background = 'assets/images/background.png';
   static const String onBoarding = 'assets/images/foreground.png';
   static const String profile = 'assets/images/Amgad.png';
+  static const String banner = 'assets/images/banner.png';
 }

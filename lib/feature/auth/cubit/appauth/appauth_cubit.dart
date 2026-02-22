@@ -35,7 +35,7 @@ class AppauthCubit extends Cubit<AppauthState> {
   Future<void> login({required String email, required String password}) async {
     emit(AppauthLoading());
     try {
-      await authService.signIn(email: email, password: password);
+      await authService.login(email: email, password: password);
       emit(AppauthSuccess());
       CacheUserRepo.login(true);
     } catch (e) {
