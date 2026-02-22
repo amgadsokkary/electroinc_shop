@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
   List<Widget> pages = [
     Center(child: Text("Home")),
     Center(child: Text("Cart")),
-    Center(child: Text("Favorites")),
     ProfilePage(),
   ];
   @override
@@ -44,10 +43,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
             label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Favorites",
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
