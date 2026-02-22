@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HeadTitle extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  HeadTitle({super.key, required this.title, required this.onPressed});
+  const HeadTitle({super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

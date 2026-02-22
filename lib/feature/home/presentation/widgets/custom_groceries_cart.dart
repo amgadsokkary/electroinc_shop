@@ -24,7 +24,7 @@ class CustomGroceriesCart extends StatelessWidget {
               height: 105,
               width: 250,
               decoration: BoxDecoration(
-                color: color.withOpacity(0.2),
+                color: color,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Padding(
