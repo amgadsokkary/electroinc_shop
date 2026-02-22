@@ -13,9 +13,9 @@ void main() async {
   await CacheUserRepo.init();
 
   await Supabase.initialize(
-    url: 'https://obukfdikkmtsvwcqkhrf.supabase.co',
+    url: 'https://depsbdjcypurfbjaearz.supabase.co',
     anonKey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9idWtmZGlra210c3Z3Y3FraHJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE2NTU0MjQsImV4cCI6MjA4NzIzMTQyNH0.aaz54fXmm0DzDI5RMta--EetH8v6DSxJmcFsR37DMFM",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRlcHNiZGpjeXB1cmZiamFlYXJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NzA2OTcsImV4cCI6MjA4NzM0NjY5N30.e0zp92fRg1T5UvNazaxQ7GsVCcIIW3b7ery0aL7BHt4",
   );
 
   final isLogin = await CacheUserRepo.isLogin();

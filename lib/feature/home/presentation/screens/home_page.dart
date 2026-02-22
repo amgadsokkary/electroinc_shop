@@ -1,6 +1,7 @@
 import 'package:electronic_store/core/theme/app_colors.dart';
 import 'package:electronic_store/core/theme/app_images.dart';
 import 'package:electronic_store/feature/auth/presentation/screens/profile_page.dart';
+import 'package:electronic_store/feature/cart/presentation/cart_page.dart';
 import 'package:electronic_store/feature/home/presentation/widgets/home_body.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  List<Widget> pages = [HomeBody(), Center(child: Text("Cart")), ProfilePage()];
+  List<Widget> pages = [HomeBody(), CartPage(), ProfilePage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
